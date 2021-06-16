@@ -1,7 +1,7 @@
 import React from 'react';
-
+import {Title} from './styles'
 function Main(){
-  return <h1>Hello Main</h1>
+  return <Title>Hello Main</Title>
 }
 
 export default Main;
