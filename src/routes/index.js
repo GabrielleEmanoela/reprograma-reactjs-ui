@@ -6,6 +6,7 @@ export default function Routes() {
   return (
     <BrowserRouter>
     <Route path="/" component={Main}></Route>
+    
     </BrowserRouter>
   );
 }

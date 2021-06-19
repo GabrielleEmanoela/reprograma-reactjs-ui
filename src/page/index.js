@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import api from "../services/api";
-
+import {
+  Title,
+  TextInput,
+  Container,
+  Div,
+  DivTitle,
+  NameCharacter,
+  DivImg,
+  divInput,
+} from "./styles";
 
 function Main() {
   const [character, setCharacter] = useState([]);
@@ -24,22 +33,28 @@ function Main() {
     );
   }, [busca, character]);
 
-  console.log(character);
   return (
-    <>
-      <input
-        onChange={(e) => {
-          setBusca(e.target.value);
-        }}
-        placeholder="Digite o nome do personagem"
-      />
-      {filtroPersonagem.map((personagem) => (
-        <div key={personagem.id}>
-          <p>{personagem.name}</p>
-          <img src={personagem.image} alt={personagem.name} width={250}/>
-        </div>
-      ))}
-    </>
+    <Container>
+      <DivTitle>
+        <Title>Character Harry Potter</Title>
+      </DivTitle>
+      <Div>
+        <divInput>
+          <TextInput
+            onChange={(e) => {
+              setBusca(e.target.value);
+            }}
+            placeholder="Search for the character"
+          />
+        </divInput>
+        {filtroPersonagem.map((personagem) => (
+          <DivImg key={personagem.id}>
+            <NameCharacter>{personagem.name}</NameCharacter>
+            <img src={personagem.image} alt={personagem.name} width={250} />
+          </DivImg>
+        ))}
+      </Div>
+    </Container>
   );
 }
 
